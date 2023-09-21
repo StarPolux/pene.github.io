@@ -1,0 +1,169 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+}
+
+.container {
+    text-align: center;
+    z-index: 20; /* Ajustamos el z-index para que esté al frente */
+    position: relative;
+}
+
+h1 {
+    font-size: 36px;
+    color: #8B4513;
+    margin-top: 20px;
+}
+
+.flower-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    z-index: 10; /* Ajustamos el z-index para que esté detrás de .container */
+    position: relative;
+}
+
+.flower {
+    width: 70px;
+    height: 250px;
+    margin: 10px;
+    position: relative;
+    background-color: #FFC085;
+    border-radius: 35px 35px 0 0;
+    animation: fadeInFlower 1s ease-in-out both;
+}
+
+/* ... (resto del CSS) ... */
+
+
+.petal {
+    width: 120px;
+    height: 120px;
+    background-color: #FFC085;
+    border-radius: 60px;
+    position: absolute;
+    bottom: -60px;
+    transform-origin: 0 100%;
+}
+
+.p1 { 
+    left: -60px; 
+}
+.p2 { 
+    right: -60px; 
+}
+
+/* Detalle del glande */
+.flower:before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 50px;
+    background-color: #FFA575;
+    border-radius: 40px 40px 0 0;
+}
+
+/* Detalle de las "venas" */
+.flower:after, .flower .vein {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 125px;
+    background-color: #EFA974;
+    border-radius: 10px;
+}
+
+.flower:after {
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Crear más venas */
+.vein:nth-child(1) {
+    top: 30%;
+    left: 20%;
+}
+
+.vein:nth-child(2) {
+    top: 60%;
+    left: 15%;
+}
+
+.vein:nth-child(3) {
+    top: 40%;
+    right: 20%;
+}
+
+.vein:nth-child(4) {
+    top: 70%;
+    right: 15%;
+}
+
+/* Agregar "pelos" alrededor de los testículos */
+.petal:after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 20px;
+    background-color: #333;
+    top: -20px;
+}
+
+.p1:after {
+    left: 10%;
+}
+
+.p2:after {
+    right: 10%;
+}
+
+.p1:before, .p2:before {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 20px;
+    background-color: #333;
+    top: -20px;
+}
+
+.p1:before {
+    left: 90%;
+}
+
+.p2:before {
+    right: 90%;
+}
+
+/* Agrega las siguientes clases para las animaciones */
+@keyframes fadeInFlower {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutFlower {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+
+.petal {
+    /* Agrega una animación de entrada a los pétalos */
+    animation: fadeInPetal 0.5s ease-in-out both;
+}
